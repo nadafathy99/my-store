@@ -1,6 +1,6 @@
+import { Cart } from './../cart.model';
 import { OrderService } from './../order.service';
 import { Component, OnInit } from '@angular/core';
-import { Cart } from '../cart.model';
 
 @Component({
   selector: 'app-cart-list',
@@ -23,6 +23,11 @@ export class CartListComponent implements OnInit {
 
   updateSubTotal(quantity:number,orderItem:Cart){
     orderItem.totalPrice = quantity* orderItem.price;
+    this.calcTotal();
+  }
+
+  deleteFromCart(orderItem:Cart){
+    this.orderItems = this.orderItems.filter((item)=>item.productId!= orderItem.productId);
     this.calcTotal();
   }
 }

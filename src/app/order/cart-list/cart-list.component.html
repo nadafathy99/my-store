@@ -3,20 +3,36 @@
 </ng-container>
 
 <ng-container *ngIf="orderItems.length">
+  <div fxLayout="row wrap" fxLayoutAlign="center start" style="margin-top: 4%;">
 
-  <div *ngFor="let orderItem of orderItems" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="6%" fxFlexOrder.lt-lg="1" style="margin-top: 5%;">
-    <div fxFlex.lt-md="60" fxFlex.gt-sm="10"><img [src]="orderItem.url"></div>
-    <div fxLayout="column" fxFlex.lt-md="60" fxFlex.gt-sm="15" fxLayoutAlign="center start">
-      <h2> {{orderItem.name}}</h2>
-      <span>{{orderItem.price |currency}}</span>
-      <span>Amount</span>
-      <mat-form-field appearance="fill">
-        <input matInput type="number" min="1" [max]="orderItem.availableQuantity"
-          [(ngModel)]="orderItem.selectedQuantity" (change)="updateSubTotal(orderItem.selectedQuantity,orderItem)">
-      </mat-form-field>
+    <div fxLayout="column" fxFlex.lt-md="60" fxFlex.gt-sm="40">
+      <div *ngFor="let orderItem of orderItems" fxLayout="row wrap" fxLayoutAlign="start center" fxLayoutGap.gt-sm="7%"
+        style="margin-top: 2%;">
+        <div fxFlex.lt-md="70" fxFlex.gt-sm="20"><img [src]="orderItem.url"></div>
+        <div fxFlex.lt-md="60" fxFlex.gt-sm="40" fxLayout="column">
+          <h2> {{orderItem.name}}</h2>
+          <span>{{orderItem.price |currency}}</span>
+          <span>Amount</span>
+          <mat-form-field appearance="fill">
+            <input matInput type="number" min="1" [max]="orderItem.availableQuantity"
+              [ngModel]="orderItem.selectedQuantity" (ngModelChange)="updateSubTotal($event,orderItem)">
+          </mat-form-field>
+        </div>
+
+        <div fxFlex="3" fxFlexAlign="end" style="padding-bottom: 4%;">
+          <button (click)="deleteFromCart(orderItem)" mat-button>
+            <mat-icon color="warn">delete</mat-icon>
+          </button>
+        </div>
+      </div>
+
+      <div class="totalPrice"> <span>Total:{{total|currency}}</span> </div>
     </div>
-    <app-checkout-form fxFlexOrder.lt-lg="3" fxFlex.lt-md="60" fxFlex.gt-sm="25"></app-checkout-form>
+
+    <div fxFlex.lt-md="60" fxFlex.gt-sm="20" ngStyle.lt-md="margin-top:5%">
+      <h2>Checkout</h2>
+      <app-checkout-form></app-checkout-form>
+    </div>
   </div>
-  <div class="totalPrice" fxLayout fxFlexOrder.lt-lg="2"> <span fxFlexOffset.lt-md="20" fxFlexOffset="19" fxFlex="10">Total:{{total|currency}}</span> </div>
 
 </ng-container>
