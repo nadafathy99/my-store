@@ -1,17 +1,21 @@
 # MyStore
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.   
+
 This is a sample application that demonstrates an E-commerce website using:
   - Angular framework. 
   - Angular material.
   - Ngx-toastr. 
-  - Angular Flex-Layout
-The application loads products from static data.json file which is located in assets folder, displays them in grid layout. Users can click on any product to get more information about it including:
+  - Angular Flex-Layout   
+
+The application loads products from static data.json file which is located in assets folder, displays them in grid layout. Users can click on any product to get more information about it including:   
+
   - Image.
   - Name.
   - Price.
   - Description.
-Users can select items and add them to their shopping cart, the toastr popups with the item and its quantity. 
+Users can select items and add them to their shopping cart, the toastr popups with the item and its quantity.   
+ 
 Users can change any item quantity before submitting their order, total price changes whenever the quantity changes.
 
 ## Development server
