@@ -1,0 +1,13 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>{{product.name}}</mat-card-title>
+  </mat-card-header>
+  <img class="header-image" mat-card-image [src]="product.url" [alt]="product.name"
+    [routerLink]='["/product",product.id]'>
+  <mat-card-content>
+    <p>
+      {{product.price|currency }}
+    </p>
+  </mat-card-content>
+  <app-add-to-cart [product]="product"></app-add-to-cart>
+</mat-card>

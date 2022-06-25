@@ -1,0 +1,15 @@
+<ng-container *ngIf="product">
+  <div fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="5%" style="margin-top: 5%;">
+    <div fxFlex="60" fxFlex.gt-sm="20"><img [src]="product.url"></div>
+      <div fxLayout="column" fxFlex="60" fxFlex.gt-sm="30" fxLayoutAlign="center start">
+        <h2> {{product.name}}</h2>
+        <span>{{product.price |currency}}</span>
+        <span>{{product.description}}</span>
+        <app-add-to-cart [product]="product"></app-add-to-cart>
+        <button routerLink="/" color="primary" mat-button>
+          <mat-icon>west</mat-icon>
+          Back to product list
+        </button>
+      </div>
+  </div>
+</ng-container>

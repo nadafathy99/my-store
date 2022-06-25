@@ -1,0 +1,43 @@
+<form #checkoutForm="ngForm" (ngSubmit)="checkout(checkoutForm.value)">
+  <mat-form-field appearance="fill">
+    <mat-label>Full Name</mat-label>
+    <input type="text" matInput ngModel #userName="ngModel" name="userName" placeholder="'(minimum 3 characters)'" required minlength="3">
+    <mat-error *ngIf="userName.errors &&userName.dirty">
+      <mat-error *ngIf="userName.hasError('required')">
+        Full Name is required
+      </mat-error>
+      <mat-error *ngIf="userName.hasError('minlength')">
+        Minimum number is 3 characters
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Address</mat-label>
+    <input type="text" matInput ngModel #address="ngModel" name="adress" placeholder="'(minimum 6 characters)'" required minlength="6">
+    <mat-error *ngIf="address.errors &&address.dirty">
+      <mat-error *ngIf="address.hasError('required')">
+        Address is required
+      </mat-error>
+      <mat-error *ngIf="address.hasError('minlength')">
+        Minimum number is 6 characters
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Credit Number</mat-label>
+    <input type="email" matInput ngModel #creditNumber="ngModel" name="creditNumber" placeholder="'(16 digit number)'" required minlength="16">
+    <mat-error *ngIf="creditNumber.errors &&creditNumber.dirty">
+      <mat-error *ngIf="creditNumber.hasError('required')">
+        Credit Number is required
+      </mat-error>
+      <mat-error *ngIf="creditNumber.hasError('minlength')">
+        Minimum number is 3 characters
+      </mat-error>
+    </mat-error>
+  </mat-form-field>
+  <p>We'll never share your data</p>
+  <button color="primary" mat-raised-button type="submit" [disabled]="checkoutForm.invalid">Submit</button>
+
+</form>

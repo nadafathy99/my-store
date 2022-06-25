@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <button *ngIf="isSmallScreen" mat-icon-button (click)="activateSidenavMode()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1>Shoppingo</h1>
+  <span class="spacer"></span>
+  <ng-container *ngIf="!isSmallScreen">
+  <button mat-button routerLink="/">Products</button>
+  <button mat-button routerLink="/cart">Cart</button>
+  </ng-container>
+</mat-toolbar>

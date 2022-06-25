@@ -1,0 +1,22 @@
+<ng-container *ngIf="!orderItems.length">
+  <div class="cart-text">Your cart is empty.</div>
+</ng-container>
+
+<ng-container *ngIf="orderItems.length">
+
+  <div *ngFor="let orderItem of orderItems" fxLayout="row wrap" fxLayoutAlign="center center" fxLayoutGap.gt-sm="6%" fxFlexOrder.lt-lg="1" style="margin-top: 5%;">
+    <div fxFlex.lt-md="60" fxFlex.gt-sm="10"><img [src]="orderItem.url"></div>
+    <div fxLayout="column" fxFlex.lt-md="60" fxFlex.gt-sm="15" fxLayoutAlign="center start">
+      <h2> {{orderItem.name}}</h2>
+      <span>{{orderItem.price |currency}}</span>
+      <span>Amount</span>
+      <mat-form-field appearance="fill">
+        <input matInput type="number" min="1" [max]="orderItem.availableQuantity"
+          [(ngModel)]="orderItem.selectedQuantity" (change)="updateSubTotal(orderItem.selectedQuantity,orderItem)">
+      </mat-form-field>
+    </div>
+    <app-checkout-form fxFlexOrder.lt-lg="3" fxFlex.lt-md="60" fxFlex.gt-sm="25"></app-checkout-form>
+  </div>
+  <div class="totalPrice" fxLayout fxFlexOrder.lt-lg="2"> <span fxFlexOffset.lt-md="20" fxFlexOffset="19" fxFlex="10">Total:{{total|currency}}</span> </div>
+
+</ng-container>

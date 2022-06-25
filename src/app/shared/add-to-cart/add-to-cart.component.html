@@ -1,0 +1,15 @@
+<mat-form-field appearance="fill" >
+  <mat-label>Quantity</mat-label>
+  <mat-select [(value)]="selected">
+    <mat-option *ngFor="let i of availableQuantity" value="{{i}}">{{i}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<mat-card-actions>
+  <ng-container *ngIf="availableQuantity.length">
+    <button color="primary" mat-raised-button (click)="addToCart()">Add to cart</button>
+  </ng-container>
+  <ng-container *ngIf="!availableQuantity.length">
+    <button color="warn" mat-button style="cursor: not-allowed">Out of stock</button>
+  </ng-container>
+</mat-card-actions>
