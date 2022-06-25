@@ -2,7 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.   
 
-This is a sample application that demonstrates an E-commerce website using:
+This is a sample application that demonstrates an E-commerce website using:   
+
   - Angular framework. 
   - Angular material.
   - Ngx-toastr. 
@@ -13,7 +14,8 @@ The application loads products from static data.json file which is located in as
   - Image.
   - Name.
   - Price.
-  - Description.
+  - Description.   
+  
 Users can select items and add them to their shopping cart, the toastr popups with the item and its quantity.   
  
 Users can change any item quantity before submitting their order, total price changes whenever the quantity changes.
